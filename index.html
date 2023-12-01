@@ -18,6 +18,63 @@
 //advance round if somebody wins and update the wins
 //post final message and stats when player or computer wins equal main function argument game wins
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function GameRound()
+ {
+
+ let playerChoice = null;
+ let computerChoice = null;
+
+ while (
+   playerChoice === null || // Loop once (initial null) and until a proper value is entered
+   !/^(rock|paper|scissors)$/i.test(playerChoice) // The input must match exactly the words "rock", "paper", or "scissors" (case-insensitive)
+ ) {
+   playerChoice = prompt("Make your choice, Rock, Paper or Scissors ?").toLowerCase(); // case insensitive clause
+
+   if (!/^(rock|paper|scissors)$/i.test(playerChoice)) {
+     alert("Please enter a valid choice (rock, paper, or scissors) without additional letters, symbols or numbers.");
+   }
+ }
+
+ computerChoice = getComputerChoice()
+
+ if (playerChoice === computerChoice )
+ {
+ alert("You have chosen " + playerChoice + ". The computer has also chosen " + computerChoice + ". It is a tie.")
+ return "tie"
+ }
+ else if ( playerChoice === "rock" && computerChoice === "paper")
+ {
+   alert("Paper beats Rock, you loose")
+   return "loose"
+ }
+ else if (playerChoice === "rock" && computerChoice === "scissors")
+ {
+   alert("Rock beats Scissors, you win!")
+   return "win"
+ }
+ else if (playerChoice === "paper" && computerChoice === "rock")
+ {
+   alert("Paper beats Rock, you win!")
+   return "win"
+ }
+ else if(playerChoice === "paper" && computerChoice === "scissors")
+ {
+   alert("Scissors beat Paper, you loose")
+   return "loose"
+ }
+ else if (playerChoice === "scissors" && computerChoice === "rock")
+ {
+   alert("Rock beats Scissors, you loose")
+   return "loose"
+ }
+ else if ( playerChoice === "scissors" && computerChoice === "paper")
+ {
+   alert("Scissors beat Paper, you win!")
+   return "win"
+ }
+ }
     
     
     
