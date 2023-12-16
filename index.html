@@ -3,139 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Play Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-//Player inputs his choice
-//while players input is illegal repeat
-//get computer choice
-//compare the choices
-//post appropriate message win loose or tie
-//make the main function, arguments = game wins
-//get game round function results and compare them
-//repeat round if it is a tie
-//advance round if somebody wins and update the wins
-//post final message and stats when player or computer wins equal main function argument game wins
+  <div class="counters">
+<div class="countersContainer">
+<h1>Player wins</h1>
+<span id = "playerWinCount"></span>
+</div>
+<div class="countersContainer">
+<h1>Computer wins</h1>
+<span id = "computerWinCount"></span>
+</div>
+<div class="countersContainer">
+<h1>Ties</h1>
+<span id= "tieDisplay"></span>
+</div>
+<div class="countersContainer">
+<h1>Rounds Played</h1>
+<span id = "totalRoundsPlayed"></span>
+</div>
+<div class="countersContainer">
+<h1>Game ends at</h1>
+<span id = "totalWins"></span>
+</div>
+</div>
 
+<div class="choose">
+<h1>Choose wisely</h1>
+</div>
+<div class="imgs">
+<img src="./assets/rock.jpg" alt = "Rock selection" id = "rockImg">
+<img src="./assets/paper.jpg" alt="Paper selection" id = "paperImg">
+<img src="./assets/scissor.jpg" alt="Scissors selection" id = "scissorImg">
+</div>
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function getComputerChoice()
-{
-let computerChoice = Math.floor(Math.random() * 3) + 1; // 1 equals rock, 2 equals paper, 3 equals scissors
-if (computerChoice === 1)
-{
-return "rock"
-}
-else if (computerChoice === 2)
-{
-return "paper"
-}
-else  (computerChoice === 3)
-{
-return "scissors"
-}
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function GameRound()
- {
-
- let playerChoice = null;
- let computerChoice = null;
-
- while (
-   playerChoice === null || // Loop once (initial null) and until a proper value is entered
-   !/^(rock|paper|scissors)$/i.test(playerChoice) // The input must match exactly the words "rock", "paper", or "scissors" (case-insensitive)
- ) {
-   playerChoice = prompt("Make your choice, Rock, Paper or Scissors ?").toLowerCase(); // case insensitive clause
-
-   if (!/^(rock|paper|scissors)$/i.test(playerChoice)) {
-     alert("Please enter a valid choice (rock, paper, or scissors) without additional letters, symbols or numbers.");
-   }
- }
-
- computerChoice = getComputerChoice()
-
- if (playerChoice === computerChoice )
- {
- alert("You have chosen " + playerChoice + ". The computer has also chosen " + computerChoice + ". It is a tie.")
- return "tie"
- }
- else if ( playerChoice === "rock" && computerChoice === "paper")
- {
-   alert("Paper beats Rock, you loose")
-   return "loose"
- }
- else if (playerChoice === "rock" && computerChoice === "scissors")
- {
-   alert("Rock beats Scissors, you win!")
-   return "win"
- }
- else if (playerChoice === "paper" && computerChoice === "rock")
- {
-   alert("Paper beats Rock, you win!")
-   return "win"
- }
- else if(playerChoice === "paper" && computerChoice === "scissors")
- {
-   alert("Scissors beat Paper, you loose")
-   return "loose"
- }
- else if (playerChoice === "scissors" && computerChoice === "rock")
- {
-   alert("Rock beats Scissors, you loose")
-   return "loose"
- }
- else if ( playerChoice === "scissors" && computerChoice === "paper")
- {
-   alert("Scissors beat Paper, you win!")
-   return "win"
- }
- }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function startGame(n)
-{
-  let playerWins = 0;
-  let computerWins = 0;
-  let gamesPlayed = 0;
-
-  alert("You will be playing a rock, paper, scissors game with the computer until either of you reaches " + n + " wins." )
-while (!(computerWins === n || playerWins === n))  
-{
-
-  alert("You played " + gamesPlayed + " round(s)      The score is:    Player " + playerWins + "    Computer " + computerWins)
-
-let gameResult = GameRound()
-if (gameResult === "win" )
-{
-  playerWins = playerWins + 1 ;
-  gamesPlayed =  gamesPlayed + 1;
-}
-else if ( gameResult === "loose")
-{
-  computerWins = computerWins + 1;
-  gamesPlayed = gamesPlayed + 1;
-}
-else if (gameResult === "tie")
-{
-  alert("None won, the round will be replayed")
-}
-
-}
-if (playerWins === n) {
-  alert("You won the game! Congratulations.\nHere are the final stats.\nYou played " + gamesPlayed + " round(s)      The score is:    Player " + playerWins + "    Computer " + computerWins)
-
-}
-else if (computerWins === n)
-{
-  alert("You lost the game. Better luck next time.\nHere are the final stats.\nYou played " + gamesPlayed + " round(s)      The score is:    Player " + playerWins + "    Computer " + computerWins)
-}
-} 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-startGame(3);  
-
-    
-    
-    </script>
+<script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
