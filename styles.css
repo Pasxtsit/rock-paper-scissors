@@ -3,10 +3,12 @@
     margin: 0px;
 }
 
-.counters{
-    display: flex;
+h2 {
+    font-size: 7vw;
+}
+
+.counters {
     align-items: center;
-    justify-content: space-around;
 }
 
 .countersContainer {
@@ -14,20 +16,44 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:10px;
-
+    gap: 10px;
 }
 
-.choose{
+.choose {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding-top: 100px;
     padding-bottom: 100px;
 }
-.imgs{
+
+.imgs {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
+}
+
+img {
+    width: 25vw;
+}
+
+@media (min-width: 1024px) {
+
+    h2 {
+        font-size: 3.2vw;
+    }
+
+    h1 {
+        font-size: 3.7vw
+    }
+
+    .counters {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .display {
+        font-size: 3vw;
+    }
 }
